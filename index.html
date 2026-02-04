@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For My Kuchupuchu Arhan</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Quicksand:wght@400;700&display=swap');
+
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #fff0f3;
+            font-family: 'Quicksand', sans-serif;
+            overflow-x: hidden;
+            text-align: center;
+            color: #5c001e;
+        }
+
+        /* Floating Hearts */
+        .heart {
+            position: fixed;
+            font-size: 20px;
+            color: #ff4d6d;
+            z-index: -1;
+            animation: move 6s linear infinite;
+        }
+        @keyframes move {
+            0% { transform: translateY(100vh) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(-10vh) rotate(360deg); opacity: 0; }
+        }
+
+        .container {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            transition: all 0.5s ease;
+        }
+
+        h1 { font-family: 'Dancing Script', cursive; font-size: 3rem; color: #ff4d6d; text-shadow: 2px 2px #ffb3c1; }
+
+        /* Button Styling */
+        .btn-container { margin-top: 30px; position: relative; height: 150px; width: 300px; }
+        .btn {
+            padding: 15px 35px;
+            font-size: 1.2rem;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: 0.3s;
+            position: absolute;
+            font-weight: bold;
+            box-shadow: 0 4px 15px rgba(255, 77, 109, 0.3);
+        }
+        #yesBtn { background-color: #ff4d6d; color: white; left: 10px; }
+        #noBtn { background-color: #808080; color: white; right: 10px; }
+
+        .hidden { display: none; }
+        
+        .card {
+            background: white;
+            padding: 30px;
+            border-radius: 30px;
+            box-shadow: 0 15px 35px rgba(255, 77, 109, 0.2);
+            max-width: 500px;
+            margin: 20px auto;
+            border: 4px solid #ffb3c1;
+        }
+
+        /* Animated Cartoon Images */
+        .cartoon { width: 150px; margin-bottom: 10px; }
+
+        /* Gift Box */
+        .gift-box {
+            width: 140px;
+            height: 120px;
+            background: #ff4d6d;
+            margin: 20px auto;
+            position: relative;
+            cursor: pointer;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+            animation: bounce 2s infinite;
+        }
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .surprise-item {
+            background: #fff0f3;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 15px;
+            border: 2px dashed #ff4d6d;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .letter-text {
+            font-size: 0.9rem;
+            text-align: justify;
+            background: #fffafa;
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 10px;
+            line-height: 1.6;
+            border-left: 5px solid #ff4d6d;
+        }
+
+        .final-img {
+            width: 100%;
+            max-width: 320px;
+            border-radius: 20px;
+            border: 6px solid #ff4d6d;
+            margin: 15px 0;
+        }
+
+        .hindi-poetry {
+            font-size: 1.3rem;
+            color: #ff4d6d;
+            font-weight: bold;
+            line-height: 1.8;
+            background: #ffe5ec;
+            padding: 15px;
+            border-radius: 15px;
+        }
+    </style>
+</head>
+<body>
+
+    <audio id="bgMusic">
+        <source src="Dil Kaa Jo Haal Hai Besharam 128 Kbps.mp3" type="audio/mpeg">
+    </audio>
+
+    <div id="step1" class="container">
+        <img src="https://media.tenor.com/IC9_X68-3pAAAAAi/cute-bear.gif" class="cartoon" alt="Cute Bear">
+        <h1>Arhan, will you be my valentine?</h1>
+        <div class="btn-container">
+            <button id="yesBtn" class="btn" onclick="goStep2()">Yes</button>
+            <button id="noBtn" class="btn" onmouseover="escape()">No</button>
+        </div>
+    </div>
+
+    <div id="step2" class="container hidden">
+        <div class="card">
+            <img src="https://media.tenor.com/7S8fQ-M7KFAAAAAi/teddy-bears-kissing.gif" style="width: 200px;" alt="Kissing Teddies">
+            <h2 style="color: #ff4d6d;">yaya you made my day baby</h2>
+            <div class="gift-box" onclick="goStep3()">Tap to Open <br> Gift Box 🎁</div>
+        </div>
+    </div>
+
+    <div id="step3" class="container hidden">
+        <div class="card">
+            <img src="https://media.tenor.com/97mX_D86pY8AAAAAi/tkthao219-bubududu.gif" class="cartoon" alt="Happy Dance">
+            <h3>Arhan's Fav Things!</h3>
+            <div style="font-size: 1.1rem; margin-bottom: 20px;">
+                🏀 Basketball | ❤️ avni | 💋 kisses | 👟 nike shoes
+            </div>
+
+            <div class="surprise-item" onclick="toggle('L1')">✨ Surprise 1 (Tap)</div>
+            <div id="L1" class="hidden letter-text">"sorry arhan i am very sorry for not becoming your fav person but ik i am the only person beside your family who loves youu more than you could imagine, who loves you like her own child and gonna love you till the day i die."</div>
+
+            <div class="surprise-item" onclick="toggle('L2')">✨ Surprise 2 (Tap)</div>
+            <div id="L2" class="hidden letter-text">"ik you are going from lot of stuggles and bad things and maybe i am the reason for those but i don't want to ruin your life i want to love you just as you are thats why i am putting this much efforts for you.you are the only one for whom i will leave everything behind and be ready to live with you for the rest of my life"</div>
+
+            <div class="surprise-item" onclick="toggle('L3')">✨ Surprise 3 (Tap)</div>
+            <div id="L3" class="hidden letter-text">"dear my kuchupuchuu rushan. i loveee youuu sooo muchh my babyy my sun moon star , i am always there for you whenever you need me i am not gonna leave you no matter .you are the bestest guy i have ever met in my life. you are the only reason for my happinness and smile on my face. you are my permanent sukoon.you are everything for me , you are my whole world . i just want to say you sorry for whatever i have done it was never my intention to hurt you. i promise i will lose my weight i will be imperfectly perfect for you. i will change myself for you i promise but please don't leave me i can't live without you. you promised me to be with me forever and ever please don't break it ever. i will study hard and let you study to i will not annoy you promise but please love me like you always doo..you are the only one for whom i will shed tears and blood both. i will never break your trust again and your parents trust from you and they lovee youu so muchh and loveeeeee youuuu sooo muchhh arhannnn my babyyy"</div>
+
+            <button class="btn" style="position: static; margin-top: 20px; background: #ff4d6d; color:white; width: 100%;" onclick="goStep4()">Last gift for my baby</button>
+        </div>
+    </div>
+
+    <div id="step4" class="container hidden">
+        <div class="card">
+            <img src="https://media.tenor.com/uCis9Xf38_0AAAAAi/milk-and-mocha-hug.gif" class="cartoon" alt="Hug">
+            <img src="us.jpg" class="final-img" alt="Arhan and Avni">
+            <div class="hindi-poetry">
+                किसे पाछे इतने ना फिरे<br>
+                जितने तेरे पीछे भटक रहे हैं<br>
+                ला के छती से कह दे ना I LOVE YOU<br>
+                छोरे तेरे के सांस अटक रहे हैं
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Start Music & Move to Step 2
+        function goStep2() {
+            document.getElementById('bgMusic').play();
+            showStep('step2');
+        }
+
+        function goStep3() { showStep('step3'); }
+        function goStep4() { showStep('step4'); }
+
+        function showStep(id) {
+            document.querySelectorAll('.container').forEach(c => c.classList.add('hidden'));
+            document.getElementById(id).classList.remove('hidden');
+        }
+
+        function toggle(id) {
+            const el = document.getElementById(id);
+            el.classList.toggle('hidden');
+        }
+
+        // No button escape
+        function escape() {
+            const btn = document.getElementById('noBtn');
+            const x = Math.random() * (window.innerWidth - 100);
+            const y = Math.random() * (window.innerHeight - 100);
+            btn.style.left = x + 'px';
+            btn.style.top = y + 'px';
+        }
+
+        // Hearts Animation
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.classList.add('heart');
+            heart.innerHTML = '❤️';
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.animationDuration = Math.random() * 2 + 3 + 's';
+            document.body.appendChild(heart);
+            setTimeout(() => { heart.remove(); }, 5000);
+        }
+        setInterval(createHeart, 300);
+    </script>
+</body>
+</html>
